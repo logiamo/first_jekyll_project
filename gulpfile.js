@@ -20,14 +20,13 @@ function html(){
 function compilesass(){
     return src('assets/css/main.scss')
         .pipe(sass({
-            style: 'compressed',
             includePaths: ['css'],
             onError: browserSync.notify
         }))
-        .pipe(postcss([prefix({ overrideBrowserslist: ['last 2 versions, not dead, > 0.2%']}), cssnano()]))
+        .pipe(postcss([prefix({ overrideBrowserslist: ['last 2 versions, not dead, > 0.2%']})]))
         .pipe(dest('_site/assets/css'))
         .pipe(browserSync.reload({stream:true}))
-        .pipe(dest('assets/css'));
+        //.pipe(dest('assets/css'));
 }
 
 
