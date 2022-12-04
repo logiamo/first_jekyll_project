@@ -5,7 +5,7 @@ const prefix = require('autoprefixer');
 const sass = require('gulp-sass')(require('sass'));
 const cp = require('child_process');
 const postcss = require('gulp-postcss');
-const cssnano = require('cssnano');
+
 
 const messages = { jekyllBuild: '<span stlye = "color: grey"> Running:</span> $ jekyll build'};
 
@@ -15,7 +15,10 @@ function html(){
     return src('_pugfiles/*.pug')
         .pipe(pug())
         .pipe(dest('_includes'));
+        //.pipe(browserSync.reload({stream:true}));
 }
+
+exports.html = html;
 
 function compilesass(){
     return src('assets/css/main.scss')
@@ -25,7 +28,7 @@ function compilesass(){
         }))
         .pipe(postcss([prefix({ overrideBrowserslist: ['last 2 versions, not dead, > 0.2%']})]))
         .pipe(dest('_site/assets/css'))
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(browserSync.stream());
         //.pipe(dest('assets/css'));
 }
 
@@ -40,12 +43,8 @@ function build(done){
 }
 
 // Rebuild Jekyll & do page reload when watched files change
-function watchjekyll(){
+function watchjekyll(cb){
     browserSync.reload();
-}
-
-function server_reload(cb){
-    series(build,watchjekyll);
     cb();
 }
 
@@ -62,11 +61,11 @@ function serve(){
     });
     //watch('**/*', server_reload);
     watch('assets/css/**', compilesass);
-    watch('assets/js/**', watchjekyll)
+    watch('assets/js/**', watchjekyll);
     watch('_pugfiles/*.pug', html);
-    watch(['index.html', '_layouts/*.html', '_includes/*'], watchjekyll);
+    watch(['index.html','_layouts/*.html', '_includes/*'], series(build,watchjekyll));
 }
 
 
 
-exports.default = series(build,serve);
+exports.default = series(compilesass, html, build, serve);
