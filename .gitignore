@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,jekyll,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,jekyll,sass
 
+_site
+.idea
+node_modules
+
 ### Jekyll ###
 _site/
 .sass-cache/
