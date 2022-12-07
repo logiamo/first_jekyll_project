@@ -32,8 +32,13 @@ function compilesass(){
         //.pipe(dest('assets/css'));
 }
 
+function returnsass(){
+    return src('assets/css/main.scss')
+    .pipe(sass())
+    .pipe(dest('assets/css'));
+}
 
-
+exports.returnsass = returnsass;
 //create jekyll-gulp connector
 //run jekyll build command
 function build(done){
