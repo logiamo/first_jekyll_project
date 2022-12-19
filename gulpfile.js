@@ -39,9 +39,11 @@ function returnsass(){
 }
 
 exports.returnsass = returnsass;
+
 //create jekyll-gulp connector
 //run jekyll build command
 function build(done){
+    returnsass()
     browserSync.notify(messages.jekyllBuild);
     return cp.spawn('jekyll.bat',['build'],{stdio:'inherit'})
         .on('close',done);
@@ -73,4 +75,4 @@ function serve(){
 
 
 
-exports.default = series(compilesass, html, build, serve);
+exports.default = series(returnsass,compilesass, html, build, serve);
