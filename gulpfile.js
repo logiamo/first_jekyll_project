@@ -68,6 +68,7 @@ function serve(){
     });
     //watch('**/*', server_reload);
     watch('assets/css/**', compilesass);
+    watch('assets/img/**', watchjekyll);
     watch('assets/js/**', watchjekyll);
     watch('_pugfiles/*.pug', html);
     watch(['index.html','_layouts/*.html', '_includes/*'], series(build,watchjekyll));
