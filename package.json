@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "browserlist": "^1.0.1",
+    "jquery": "^3.6.3",
     "postcss-cli": "^10.0.0"
   },
   "postcss": {

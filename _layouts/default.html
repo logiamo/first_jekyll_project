@@ -5,8 +5,13 @@
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   </head>
   <body>
     {{ content }}
+
+    {% if page.url == "/index.html" %}
+    <script src="/assets/js/functions.js"></script>
+    {% endif %}
   </body>
 </html>
