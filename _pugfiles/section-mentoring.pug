@@ -1,0 +1,23 @@
+mixin face
+    li.face(style="background-image: url(https://placekitten.com/80/80)")
+                    .bubble
+                        p Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        cite - Nathan Jacobs
+
+section.mentoring
+    .flex.flex--center
+        .col-1
+            ul.faces
+                +face
+                +face
+                li.face.has-bubble-open(style="background-image: url(https://placekitten.com/80/80)")
+                    .bubble
+                        p Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        cite - Nathan Jacobs
+                +face
+                +face
+                +face
+                
+        .col-1
+            p.home-lead.outdented ...Wir können Sie auch mental unterstützen...
+            a(href="").home-cta Buchen Sie einen Termin

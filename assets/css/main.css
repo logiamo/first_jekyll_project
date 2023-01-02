@@ -647,6 +647,11 @@ section.youtube .flex-video {
   box-shadow: 0px 4px 40px 3px rgba(0, 0, 0, 0.5);
   transform: scale(1.4);
 }
+@media (max-width: 985px) {
+  section.youtube .flex-video {
+    transform: scale(1);
+  }
+}
 section.youtube .col-1 {
   position: relative;
   height: 400px;
@@ -660,10 +665,54 @@ section.youtube .col-1 {
     height: auto;
     display: block;
     padding: 50px 20px;
+    margin-left: 30px;
   }
   section.youtube .col-1:last-child {
     padding: 0px 20px 50px;
   }
+}
+
+section.mentoring {
+  background-image: url(/assets/img/mentoring-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+  color: white;
+}
+section.mentoring .home-lead {
+  margin-top: 350px;
+}
+section.mentoring .faces {
+  list-style: none;
+  background: pink;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+}
+section.mentoring .face {
+  height: 80px;
+  width: 80px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin-bottom: 35px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+section.mentoring .bubble {
+  display: none;
+  position: absolute;
+  left: 100%;
+  bottom: 0%;
+  margin-left: 10px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 40px 40px 40px 5px;
+  border: 3px solid white;
+}
+section.mentoring .face:hover .bubble {
+  display: block;
 }
 
 .home-wrap {
